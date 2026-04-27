@@ -1,7 +1,6 @@
-package com.example;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.Test;
 
 public class AppTest {
@@ -9,9 +8,15 @@ public class AppTest {
     @Test
     public void testGoogle() {
 
-        System.setProperty("webdriver.edge.driver", "C:\\drivers\\msedgedriver.exe");
+        EdgeOptions options = new EdgeOptions();
 
-        WebDriver driver = new EdgeDriver();
+        options.addArguments("--headless=new");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        WebDriver driver = new EdgeDriver(options);
+
         driver.get("https://www.google.com");
 
         System.out.println("Title: " + driver.getTitle());
