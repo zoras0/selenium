@@ -8,6 +8,9 @@ public class AppTest {
     @Test
     public void testGoogle() {
 
+        // ✅ IMPORTANT: give driver path for Jenkins
+        System.setProperty("webdriver.edge.driver", "C:\\drivers\\msedgedriver.exe");
+
         EdgeOptions options = new EdgeOptions();
 
         options.addArguments("--headless=new");
